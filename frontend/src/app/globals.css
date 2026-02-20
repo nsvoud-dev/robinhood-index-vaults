@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --robin-green: #00C805;
+  --robin-green-dark: #00A804;
+  --bg-base: #0a0a0a;
+  --bg-card: #1a1a1a;
+  --border-dark: #333333;
+  --text-primary: #e5e5e5;
+  --text-muted: #a3a3a3;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 200, 5, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(0, 200, 5, 0.04), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(0, 200, 5, 0.04), transparent),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 60px,
+      rgba(255, 255, 255, 0.02) 60px,
+      rgba(255, 255, 255, 0.02) 61px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 60px,
+      rgba(255, 255, 255, 0.02) 60px,
+      rgba(255, 255, 255, 0.02) 61px
+    );
+  background-size: 100% 100%, 100% 100%, 100% 100%, 120px 120px, 120px 120px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+  animation: bg-drift 25s ease-in-out infinite;
+}
+
+@keyframes bg-drift {
+  0%, 100% {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+  33% {
+    background-position: 0 0, 2% 0, -2% 0, 4px 0, 0 4px;
+  }
+  66% {
+    background-position: 0 0, -1% 0, 1% 0, -4px 0, 0 -4px;
+  }
+}
+
+.background-orb {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  height: 80vw;
+  max-width: 1200px;
+  max-height: 1200px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(0, 200, 5, 0.15) 0deg,
+    transparent 180deg,
+    rgba(0, 200, 5, 0.15) 360deg
+  );
+  filter: blur(100px);
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  animation: orb-rotate 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes orb-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border-dark);
+  }
+}

@@ -1,0 +1,31 @@
+# Environment and secrets — never commit
+.env
+.env.local
+.env.*.local
+*.env
+
+# Dependencies
+node_modules/
+
+# Hardhat
+cache/
+artifacts/
+typechain-types/
+coverage/
+coverage.json
+
+# Next.js (frontend)
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# Debug and OS
+npm-debug.log*
+.DS_Store
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
