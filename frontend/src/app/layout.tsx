@@ -17,8 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="min-h-screen font-sans antialiased">
-        <div className="background-orb" aria-hidden="true" />
+      <body className="min-h-screen font-sans antialiased tracking-tight">
+        <div className="cloudscape" aria-hidden="true">
+          <div className="cloud cloud-1" />
+          <div className="cloud cloud-2" />
+          <div className="cloud cloud-3" />
+          <div className="cloud cloud-4" />
+          <div className="cloud cloud-5" />
+        </div>
         <Providers>{children}</Providers>
       </body>
     </html>
