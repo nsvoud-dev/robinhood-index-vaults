@@ -282,7 +282,6 @@ export default function Home() {
   const hasVaultAddress = Boolean(INDEX_VAULT_ADDRESS);
 
   const handleInvest = () => {
-    console.log("Index vault contract address:", INDEX_VAULT_ADDRESS ?? "undefined");
     if (!INDEX_VAULT_ADDRESS) return;
     if (!isInvestValid || investAmountWei === null) return;
     writeContract({
@@ -381,7 +380,6 @@ export default function Home() {
     if (bps.length !== INDEX_TOKEN_COUNT) return;
     const bpsSumCheck = bps.reduce((a, b) => a + b, 0);
     if (bpsSumCheck !== BPS_TOTAL) return;
-    console.log("[setUserIndex] Sending BPS array to contract (order: PLTR, AMD, NFLX, AMZN, TSLA):", bps, "sum:", bpsSumCheck);
     writeContract({
       address: INDEX_VAULT_ADDRESS,
       abi: INDEX_VAULT_ABI,
